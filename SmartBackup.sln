@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "EasyBackup", "EasyBackup\EasyBackup.vbproj", "{C1554A99-6129-4141-9AE6-010BAEC07BE6}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SmartBackup", "SmartBackup\SmartBackup.vbproj", "{C1554A99-6129-4141-9AE6-010BAEC07BE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
