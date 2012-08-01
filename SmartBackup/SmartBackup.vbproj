@@ -106,17 +106,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="UserControls\KryptonButtonsList.Designer.vb">
+    <Compile Include="Controls\KryptonButtonsList.Designer.vb">
       <DependentUpon>KryptonButtonsList.vb</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\KryptonButtonsList.vb" />
+    <Compile Include="Controls\KryptonButtonsList.vb" />
     <Compile Include="UserControls\MainPage.Designer.vb">
       <DependentUpon>MainPage.vb</DependentUpon>
     </Compile>
     <Compile Include="UserControls\MainPage.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ScrollFlowLayoutPanel.vb">
+    <Compile Include="Controls\ScrollFlowLayoutPanel.vb">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
@@ -132,7 +132,7 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\KryptonButtonsList.resx">
+    <EmbeddedResource Include="Controls\KryptonButtonsList.resx">
       <DependentUpon>KryptonButtonsList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MainPage.resx">
@@ -153,6 +153,7 @@
   <ItemGroup>
     <None Include="Resources\glyphicons_190_circle_plus.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
