@@ -1,9 +1,21 @@
 ﻿Public Class FileRecord
+    Private _id As Integer
     Private _FileURL As String
     Private _isFile As Boolean
     Private _isFolder As Boolean
     Private _oldMD5Checksum As String
     Private _oldLastModify As DateTime
+
+    Private _properties As New FileProperty("root", "array")
+
+    Public Property ID As Integer
+        Get
+            Return Me._id
+        End Get
+        Set(ByVal value As Integer)
+            Me._id = value
+        End Set
+    End Property
 
     Public Property FileURL As String
         Get
@@ -34,7 +46,7 @@
 
     Public ReadOnly Property Changed As Boolean
         Get
-            Return Not MD5.VerifyMd5Hashes(Me.MD5Checksum, Me.OldMD5Checksum) Or Not Me.OldLastModify.Equals(Me.LastModify)
+            'Return Not MD5.VerifyMd5Hashes(Me.MD5Checksum, Me.OldMD5Checksum) Or Not Me.OldLastModify.Equals(Me.LastModify)
         End Get
     End Property
 
@@ -47,7 +59,7 @@
         End Get
     End Property
 
-    Public Property OldLastModify As DateTime
+    Public Property LastBackupDate As DateTime
         Get
             Return Me._oldLastModify
         End Get
@@ -75,7 +87,13 @@
     End Property
 
 
-    Public Sub New(ByVal FileURL As String, ByVal IsFile As Boolean)
+    Public Sub RegisterProperties(ByVal PropertiesList As Dictionary(Of String, FileProperty))
+        Me._properties.RegisterProperties(PropertiesList)
+    End Sub
+
+
+    Public Sub New(ByVal ID As Integer, ByVal FileURL As String, ByVal IsFile As Boolean)
+        Me._id = ID
         Me._FileURL = FileURL
         Me._isFile = IsFile
         Me._isFolder = Not IsFile
@@ -84,7 +102,28 @@
         Me._oldLastModify = Nothing
     End Sub
 
-    Public Sub New(ByVal FileURL As String, ByVal IsFile As Boolean, ByVal OldMD5Checksum As String, ByVal OldLastModify As DateTime)
+    Public Sub New(ByVal ID As Integer, ByVal FileURL As String, ByVal IsFile As Boolean, ByVal OldMD5Checksum As String)
+        Me._id = ID
+        Me._FileURL = FileURL
+        Me._isFile = IsFile
+        Me._isFolder = Not IsFile
+
+        Me._oldMD5Checksum = OldMD5Checksum
+        Me._oldLastModify = Nothing
+    End Sub
+
+    Public Sub New(ByVal ID As Integer, ByVal FileURL As String, ByVal IsFile As Boolean, ByVal OldLastModify As DateTime)
+        Me._id = ID
+        Me._FileURL = FileURL
+        Me._isFile = IsFile
+        Me._isFolder = Not IsFile
+
+        Me._oldMD5Checksum = ""
+        Me._oldLastModify = OldLastModify
+    End Sub
+
+    Public Sub New(ByVal ID As Integer, ByVal FileURL As String, ByVal IsFile As Boolean, ByVal OldMD5Checksum As String, ByVal OldLastModify As DateTime)
+        Me._id = ID
         Me._FileURL = FileURL
         Me._isFile = IsFile
         Me._isFolder = Not IsFile
