@@ -8,9 +8,9 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C1554A99-6129-4141-9AE6-010BAEC07BE6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>EasyBackup.My.MyApplication</StartupObject>
-    <RootNamespace>EasyBackup</RootNamespace>
-    <AssemblyName>EasyBackup</AssemblyName>
+    <StartupObject>SmartBackup.My.MyApplication</StartupObject>
+    <RootNamespace>SmartBackup</RootNamespace>
+    <AssemblyName>SmartBackup</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -23,7 +23,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>EasyBackup.xml</DocumentationFile>
+    <DocumentationFile>SmartBackup.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
@@ -33,7 +33,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>EasyBackup.xml</DocumentationFile>
+    <DocumentationFile>SmartBackup.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -49,10 +49,10 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.3.2.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Data.v11.1, Version=11.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v11.1, Version=11.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v11.1, Version=11.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.3.2.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -81,7 +81,9 @@
     <Compile Include="BuiltInFilters\FoldersFilter.vb" />
     <Compile Include="BuiltInFilters\MissingFileFilter.vb" />
     <Compile Include="BuiltInFilters\UnchangedFileFilter.vb" />
-    <Compile Include="FileRecord.vb" />
+    <Compile Include="Models\BackupSet.vb" />
+    <Compile Include="Models\FileProperty.vb" />
+    <Compile Include="Models\FileRecord.vb" />
     <Compile Include="FilterManager.vb" />
     <Compile Include="frm_main.Designer.vb">
       <DependentUpon>frm_main.vb</DependentUpon>
@@ -91,6 +93,7 @@
     </Compile>
     <Compile Include="IFilter.vb" />
     <Compile Include="MD5.vb" />
+    <Compile Include="Models\DataFile.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
