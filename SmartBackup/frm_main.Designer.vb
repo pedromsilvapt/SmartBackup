@@ -21,32 +21,32 @@ Partial Class frm_main
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.KryptonPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
+        Me.MainPage1 = New SmartBackup.MainPage()
         Me.KryptonManager = New ComponentFactory.Krypton.Toolkit.KryptonManager(Me.components)
-        Me.MainPage2 = New EasyBackup.MainPage()
         CType(Me.KryptonPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'KryptonPanel
         '
-        Me.KryptonPanel.Controls.Add(Me.MainPage2)
+        Me.KryptonPanel.Controls.Add(Me.MainPage1)
         Me.KryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.KryptonPanel.Location = New System.Drawing.Point(0, 0)
         Me.KryptonPanel.Name = "KryptonPanel"
         Me.KryptonPanel.Size = New System.Drawing.Size(852, 438)
         Me.KryptonPanel.TabIndex = 0
         '
+        'MainPage2
+        '
+        Me.MainPage1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.MainPage1.Location = New System.Drawing.Point(0, 0)
+        Me.MainPage1.Name = "MainPage2"
+        Me.MainPage1.Size = New System.Drawing.Size(852, 438)
+        Me.MainPage1.TabIndex = 0
+        '
         'KryptonManager
         '
         Me.KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Silver
-        '
-        'MainPage2
-        '
-        Me.MainPage2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.MainPage2.Location = New System.Drawing.Point(0, 0)
-        Me.MainPage2.Name = "MainPage2"
-        Me.MainPage2.Size = New System.Drawing.Size(852, 438)
-        Me.MainPage2.TabIndex = 0
         '
         'frm_main
         '
@@ -76,9 +76,8 @@ Partial Class frm_main
     Protected Overrides Sub Finalize()
         MyBase.Finalize()
     End Sub
-    Friend WithEvents MainPage1 As EasyBackup.MainPage
+    Friend WithEvents MainPage1 As SmartBackup.MainPage
     Friend WithEvents KryptonButton3 As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents KryptonButton2 As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents KryptonButton1 As ComponentFactory.Krypton.Toolkit.KryptonButton
-    Friend WithEvents MainPage2 As EasyBackup.MainPage
 End Class

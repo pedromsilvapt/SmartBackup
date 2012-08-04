@@ -1,10 +1,14 @@
 ﻿Public Class MainPage
     Private WithEvents FiltersMng As New FilterManager
+    Private _Data As DataFile
 
-    Public Sub ApplicationStart()
+    Public Sub ApplicationStart(ByRef DataFile As DataFile)
+        Me._Data = DataFile
+
         AddHandler FiltersMng.FilterChanged, AddressOf Me.FilterChanged
 
         RefreshFiltersBar()
+        RefreshBackupSets()
     End Sub
 
     Public Function CreateNewFilterButton(ByVal Filter As IFilter, ByVal btn_name As String, ByVal Checked As Boolean)
@@ -48,12 +52,14 @@
         FiltersMng.RegisterFilter(newFilter)
         KryptonButtonsList1.AddCheckButton("kcbtn_show_missing", newFilter.Label("pt-PT"), newFilter.Name)
         AddHandler KryptonButtonsList1.CheckButton("kcbtn_show_missing").CheckedChanged, AddressOf Me.FilterButtonChanged
+    End Sub
 
+    Public Sub RefreshBackupSets()
         KryptonButtonsList2.AddCheckSet("kcks_backupsets")
-        KryptonButtonsList2.AddCheckButton("btn_backupset_1", "BackUp Pen", Checked:=True, CheckSetName:="kcks_backupsets")
-        KryptonButtonsList2.AddCheckButton("btn_backupset_2", "BackUp Escola", CheckSetName:="kcks_backupsets")
-        KryptonButtonsList2.AddCheckButton("btn_backupset_3", "BackUp Trabalho", CheckSetName:="kcks_backupsets")
-        KryptonButtonsList2.AddCheckButton("btn_backupset_4", "BackUp Pessoal", CheckSetName:="kcks_backupsets")
+
+        For Each _BS As String In Me._Data.BackupSetsList
+            KryptonButtonsList2.AddCheckButton(String.Format("btn_backupset_{0}", Me._Data.BackupSet(_BS).ID), Me._Data.BackupSet(_BS).Name, CheckSetName:="kcks_backupsets")
+        Next
     End Sub
 
     Public Sub RefreshFiles(ByRef FilesList As List(Of FileRecord))
@@ -73,6 +79,5 @@
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-        Me.ApplicationStart()
     End Sub
 End Class

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<backupsets>
+	<set id="1" title="BackUp Pen">
+		<items>
+			<item id="1" src="C:\Users\SomeFile.txt" type="file">
+				<property type="boolean" name="modify" value="1" />
+				<property type="array" name="modifiers">
+					<property type="string" name="zip" value="zip" />
+					<property type="string" name="encrypt" value="thisPassBlahBlah" />
+				</property>
+			</item>
+			<item id="2" src="C:\Users\SomeFolder" type="folder">
+			</item>
+		</items>
+	</set>
+	<set id="2" title="BackUp Escola">
+		<items>
+		</items>
+	</set>
+	<set id="3" title="BackUp Trabalho">
+		<items>
+		</items>
+	</set>
+	<set id="4" title="BackUp Pessoal">
+		<items>
+		</items>
+	</set>
+</backupsets>

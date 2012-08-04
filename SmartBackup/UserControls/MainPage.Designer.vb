@@ -28,8 +28,8 @@ Partial Class MainPage
         Me.kpnl_background = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         Me.KryptonTextBox1 = New ComponentFactory.Krypton.Toolkit.KryptonTextBox()
         Me.KryptonButton1 = New ComponentFactory.Krypton.Toolkit.KryptonButton()
-        Me.KryptonButtonsList1 = New EasyBackup.KryptonButtonsList(Me.components)
-        Me.KryptonButtonsList2 = New EasyBackup.KryptonButtonsList(Me.components)
+        Me.KryptonButtonsList1 = New SmartBackup.KryptonButtonsList(Me.components)
+        Me.KryptonButtonsList2 = New SmartBackup.KryptonButtonsList(Me.components)
         CType(Me.kpnl_background, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.kpnl_background.SuspendLayout()
         CType(Me.KryptonButtonsList1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,7 +88,7 @@ Partial Class MainPage
         Me.KryptonButton1.Name = "KryptonButton1"
         Me.KryptonButton1.Size = New System.Drawing.Size(140, 50)
         Me.KryptonButton1.TabIndex = 6
-        Me.KryptonButton1.Values.Image = Global.EasyBackup.My.Resources.Resources.glyphicons_190_circle_plus
+        Me.KryptonButton1.Values.Image = Global.SmartBackup.My.Resources.Resources.glyphicons_190_circle_plus
         Me.KryptonButton1.Values.Text = ""
         '
         'KryptonButtonsList1
@@ -135,8 +135,8 @@ Partial Class MainPage
     Friend WithEvents KryptonDropButton1 As ComponentFactory.Krypton.Toolkit.KryptonDropButton
     Friend WithEvents kpnl_background As ComponentFactory.Krypton.Toolkit.KryptonPanel
     Friend WithEvents KryptonTextBox1 As ComponentFactory.Krypton.Toolkit.KryptonTextBox
-    Friend WithEvents KryptonButtonsList1 As EasyBackup.KryptonButtonsList
-    Friend WithEvents KryptonButtonsList2 As EasyBackup.KryptonButtonsList
+    Friend WithEvents KryptonButtonsList1 As SmartBackup.KryptonButtonsList
+    Friend WithEvents KryptonButtonsList2 As SmartBackup.KryptonButtonsList
     Friend WithEvents KryptonButton1 As ComponentFactory.Krypton.Toolkit.KryptonButton
 
 End Class
