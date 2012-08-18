@@ -81,6 +81,7 @@
     <Compile Include="BuiltInFilters\FoldersFilter.vb" />
     <Compile Include="BuiltInFilters\MissingFileFilter.vb" />
     <Compile Include="BuiltInFilters\UnchangedFileFilter.vb" />
+    <Compile Include="Controls\KryptonShadowTextBox.vb" />
     <Compile Include="Models\BackupSet.vb" />
     <Compile Include="Models\FileProperty.vb" />
     <Compile Include="Models\FileRecord.vb" />
@@ -113,6 +114,12 @@
       <DependentUpon>KryptonButtonsList.vb</DependentUpon>
     </Compile>
     <Compile Include="Controls\KryptonButtonsList.vb" />
+    <Compile Include="UserControls\EditBackupSet.Designer.vb">
+      <DependentUpon>EditBackupSet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\EditBackupSet.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\MainPage.Designer.vb">
       <DependentUpon>MainPage.vb</DependentUpon>
     </Compile>
@@ -138,6 +145,9 @@
     <EmbeddedResource Include="Controls\KryptonButtonsList.resx">
       <DependentUpon>KryptonButtonsList.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\EditBackupSet.resx">
+      <DependentUpon>EditBackupSet.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MainPage.resx">
       <DependentUpon>MainPage.vb</DependentUpon>
     </EmbeddedResource>
@@ -156,7 +166,15 @@
   <ItemGroup>
     <None Include="Resources\glyphicons_190_circle_plus.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\glyphicons_192_circle_remove.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

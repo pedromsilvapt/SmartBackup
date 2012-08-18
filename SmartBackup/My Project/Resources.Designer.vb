@@ -60,9 +60,30 @@ Namespace My.Resources
             End Set
         End Property
         
+        Friend ReadOnly Property cross() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("cross", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property glyphicons_190_circle_plus() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("glyphicons_190_circle_plus", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property glyphicons_192_circle_remove() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("glyphicons_192_circle_remove", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property pencil() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("pencil", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

@@ -21,38 +21,38 @@ Partial Class frm_main
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.KryptonPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
-        Me.MainPage1 = New SmartBackup.MainPage()
         Me.KryptonManager = New ComponentFactory.Krypton.Toolkit.KryptonManager(Me.components)
+        Me.pg_main = New SmartBackup.MainPage()
         CType(Me.KryptonPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'KryptonPanel
         '
-        Me.KryptonPanel.Controls.Add(Me.MainPage1)
+        Me.KryptonPanel.Controls.Add(Me.pg_main)
         Me.KryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.KryptonPanel.Location = New System.Drawing.Point(0, 0)
         Me.KryptonPanel.Name = "KryptonPanel"
-        Me.KryptonPanel.Size = New System.Drawing.Size(852, 438)
+        Me.KryptonPanel.Size = New System.Drawing.Size(870, 438)
         Me.KryptonPanel.TabIndex = 0
-        '
-        'MainPage2
-        '
-        Me.MainPage1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.MainPage1.Location = New System.Drawing.Point(0, 0)
-        Me.MainPage1.Name = "MainPage2"
-        Me.MainPage1.Size = New System.Drawing.Size(852, 438)
-        Me.MainPage1.TabIndex = 0
         '
         'KryptonManager
         '
         Me.KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Silver
         '
+        'pg_main
+        '
+        Me.pg_main.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pg_main.Location = New System.Drawing.Point(0, 0)
+        Me.pg_main.Name = "pg_main"
+        Me.pg_main.Size = New System.Drawing.Size(870, 438)
+        Me.pg_main.TabIndex = 0
+        '
         'frm_main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(852, 438)
+        Me.ClientSize = New System.Drawing.Size(870, 438)
         Me.Controls.Add(Me.KryptonPanel)
         Me.Name = "frm_main"
         Me.Text = "EasyBackup"
@@ -76,7 +76,7 @@ Partial Class frm_main
     Protected Overrides Sub Finalize()
         MyBase.Finalize()
     End Sub
-    Friend WithEvents MainPage1 As SmartBackup.MainPage
+    Friend WithEvents pg_main As SmartBackup.MainPage
     Friend WithEvents KryptonButton3 As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents KryptonButton2 As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents KryptonButton1 As ComponentFactory.Krypton.Toolkit.KryptonButton
