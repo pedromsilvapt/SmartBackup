@@ -163,6 +163,8 @@
 
 
     Public Sub RenderButtons()
+        Dim autoSize As Size
+
         If (Me.Orientation = Windows.Forms.Orientation.Vertical) Then
             For Each _Button As ComponentFactory.Krypton.Toolkit.KryptonButton In Me.flpnl_main.Controls
                 If (Me.flpnl_main.Controls.GetChildIndex(_Button) = 0) Then
@@ -177,8 +179,9 @@
 
                 If (Me.ButtonsAutoSizeH Or Me.ButtonsAutoSizeV) Then
                     _Button.AutoSize = True
-                    _Button.Size = _Button.PreferredSize
+                    autoSize = _Button.DisplayRectangle.Size
                     _Button.AutoSize = False
+                    _Button.Size = autoSize
                 End If
                 If (Not Me.ButtonsAutoSizeH) Then
                     _Button.Width = Me.CustomSize.Width
@@ -197,8 +200,9 @@
 
                 If (Me.ButtonsAutoSizeH Or Me.ButtonsAutoSizeV) Then
                     _Button.AutoSize = True
-                    _Button.Size = _Button.PreferredSize
+                    autoSize = _Button.DisplayRectangle.Size
                     _Button.AutoSize = False
+                    _Button.Size = autoSize
                 End If
                 If (Not Me.ButtonsAutoSizeH) Then
                     _Button.Width = Me.CustomSize.Width
@@ -265,12 +269,6 @@
             kbtnNew.StateCommon.Border.Rounding = 0
             kbtnNew.Checked = Checked
 
-            If (Me.Orientation = Windows.Forms.Orientation.Horizontal) Then
-                kbtnNew.AutoSize = True
-                kbtnNew.Size = kbtnNew.PreferredSize
-                kbtnNew.AutoSize = False
-            End If
-
             Me.flpnl_main.Controls.Add(kbtnNew)
 
             If (Not CheckSetName.Equals("")) Then
@@ -293,6 +291,8 @@
     Public Sub RemoveButton(ByVal buttonName As String)
         If (Me.ButtonExists(buttonName)) Then
             Me.flpnl_main.Controls.RemoveByKey(buttonName)
+
+            Me.RenderButtons()
         Else
             Throw New Exception(String.Format("The item you're trying to remove ({0}) doesn't exist.", buttonName))
         End If
