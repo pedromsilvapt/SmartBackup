@@ -13,6 +13,15 @@
         End Set
     End Property
 
+    Public Property Type As String
+        Get
+            Return Me._type
+        End Get
+        Set(ByVal value As String)
+            Me._type = value
+        End Set
+    End Property
+
     Public Property Value As Object
         Get
             If (Not Me.IsArray) Then

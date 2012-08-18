@@ -26,6 +26,23 @@
         End Set
     End Property
 
+    Public ReadOnly Property PropertiesList As Dictionary(Of String, FileProperty).KeyCollection
+        Get
+            Return Me._properties.ChildrenList
+        End Get
+    End Property
+
+    Public Property Properties As FileProperty
+        Get
+            Return Me._properties
+        End Get
+        Set(ByVal value As FileProperty)
+            If (value.IsArray) Then
+                Me._properties = value
+            End If
+        End Set
+    End Property
+
     Public ReadOnly Property IsFile As Boolean
         Get
             Return True
