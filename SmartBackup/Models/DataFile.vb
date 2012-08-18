@@ -41,6 +41,14 @@ Public Class DataFile
         End If
     End Sub
 
+    Public Sub RemoveBackupSet(ByVal ID As Integer)
+        If (Me.BackupSetExists(ID)) Then
+            Me._BackUpSets.Remove(ID)
+        Else
+            Throw New Exception(String.Format("There isn't any backup set with the specified ID({0}) on the list.", ID))
+        End If
+    End Sub
+
     Private Function ReadProperties(ByRef Node As XmlNode) As Dictionary(Of String, FileProperty)
         Dim Properties As New Dictionary(Of String, FileProperty)
         Dim pType As String
