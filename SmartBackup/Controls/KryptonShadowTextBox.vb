@@ -78,18 +78,18 @@
         End Set
     End Property
 
-    'Public Overrides Property Text As String
-    '    Get
-    '        Return Me.GetText(False)
-    '    End Get
-    '    Set(ByVal value As String)
-    '        Me.SetText(value, True)
-    '    End Set
-    'End Property
+    Public Overrides Property Text As String
+        Get
+            Return Me.GetText(False)
+        End Get
+        Set(ByVal value As String)
+            Me.SetText(value, True)
+        End Set
+    End Property
 
     Protected Friend Sub SetText(ByVal value As String, Optional ByVal IsInput As Boolean = True)
         If (IsInput) Then
-            If (value = "") Then
+            If (value = "" And Not Me.Focused) Then
                 ShowShadow()
             Else
                 HideShadow()
