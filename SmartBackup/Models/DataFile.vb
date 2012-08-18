@@ -28,6 +28,15 @@ Public Class DataFile
         End Set
     End Property
 
+    Public Function BackupSetExists(ByVal BackupName As String) As Boolean
+        For Each _BUS As Integer In Me.BackupSetsList
+            If (Me.BackupSet(_BUS).Name.Equals(BackupName)) Then
+                Return True
+            End If
+        Next
+
+        Return False
+    End Function
 
     Public Function BackupSetExists(ByVal BackupID As Integer) As Boolean
         Return Me._BackUpSets.ContainsKey(BackupID)
@@ -141,7 +150,7 @@ Public Class DataFile
         Dim n_property As XmlElement
 
         If (currentNode.IsArray) Then
-            For Each _Property As String In currentNode.ChildrenList
+            For Each _Property As String In currentNode.ChildrenList.ToList
                 n_property = document.CreateElement("property")
                 n_property.SetAttribute("type", currentNode.Property(_Property).Type)
                 n_property.SetAttribute("name", currentNode.Property(_Property).Name)
@@ -190,12 +199,16 @@ Public Class DataFile
                 End If
 
                 Me.SaveProperties(xmld, n_item, Me.BackupSet(_Set).Item(_Item).Properties)
+
+                n_items.AppendChild(n_item)
             Next
 
             n_set.AppendChild(n_items)
             n_backsets.AppendChild(n_set)
         Next
         xmld.AppendChild(n_backsets)
+
+        xmld.Save(Me._FileURL)
     End Sub
 
     Public Sub New(ByVal FileURL As String)
