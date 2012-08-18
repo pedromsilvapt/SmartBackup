@@ -290,6 +290,14 @@
         End If
     End Sub
 
+    Public Sub RemoveButton(ByVal buttonName As String)
+        If (Me.ButtonExists(buttonName)) Then
+            Me.flpnl_main.Controls.RemoveByKey(buttonName)
+        Else
+            Throw New Exception(String.Format("The item you're trying to remove ({0}) doesn't exist.", buttonName))
+        End If
+    End Sub
+
     Private Sub KryptonButtonsList_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
         RefreshPanelSize()
     End Sub
