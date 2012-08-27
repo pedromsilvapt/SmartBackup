@@ -162,6 +162,23 @@
     Public Property MouseWheelScroll As Boolean = True
 
 
+    Public Event CheckedChanged(ByVal sender As Object, ByVal e As System.EventArgs)
+    Public Event CheckedButtonChanged(ByVal sender As Object, ByVal e As System.EventArgs)
+    Public Event ButtonClicked(ByVal sender As Object, ByVal e As System.EventArgs)
+
+
+    Protected Sub _ButtonClicked(ByVal sender As Object, ByVal e As System.EventArgs)
+        RaiseEvent ButtonClicked(sender, e)
+    End Sub
+
+    Protected Sub _CheckedChanged(ByVal sender As Object, ByVal e As System.EventArgs)
+        RaiseEvent CheckedChanged(sender, e)
+    End Sub
+
+    Protected Sub _CheckedButtonChanged(ByVal sender As Object, ByVal e As System.EventArgs)
+        RaiseEvent CheckedButtonChanged(sender, e)
+    End Sub
+
     Public Sub RenderButtons()
         Dim autoSize As Size
 
@@ -235,6 +252,7 @@
 
             newCKS.AllowUncheck = False
             Me._CheckSets.Add(CheckSetName, newCKS)
+            AddHandler Me._CheckSets(CheckSetName).CheckedButtonChanged, AddressOf _CheckedButtonChanged
         Else
             Throw New Exception(String.Format("There already exists a Button with the same name ({0}).", CheckSetName))
         End If
@@ -251,6 +269,8 @@
             kbtnNew.StateCommon.Border.Rounding = 0
 
             Me.flpnl_main.Controls.Add(kbtnNew)
+
+            AddHandler kbtnNew.Click, AddressOf _ButtonClicked
 
             Me.RenderButtons()
         Else
@@ -282,6 +302,9 @@
                 End If
             End If
 
+            AddHandler kbtnNew.Click, AddressOf _ButtonClicked
+            AddHandler kbtnNew.CheckedChanged, AddressOf _CheckedChanged
+
             Me.RenderButtons()
         Else
             Throw New Exception(String.Format("There already exists a Button with the same name ({0}).", ButtonName))
@@ -296,6 +319,11 @@
         Else
             Throw New Exception(String.Format("The item you're trying to remove ({0}) doesn't exist.", buttonName))
         End If
+    End Sub
+
+    Public Sub Clear()
+        Me._CheckSets.Clear()
+        Me.flpnl_main.Controls.Clear()
     End Sub
 
     Private Sub KryptonButtonsList_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
